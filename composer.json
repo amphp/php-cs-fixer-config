@@ -1,5 +1,5 @@
 {
-  "name": "amp/php-cs-fixer-config",
+  "name": "amphp/php-cs-fixer-config",
   "description": "PHP CS Fixer config for AMP",
   "type": "library",
   "license": "MIT",
