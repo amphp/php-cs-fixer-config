@@ -1,10 +1,10 @@
 <?php
 
-namespace Amp\CS\Config;
+namespace Amp\CodeStyle;
 
-use PhpCsFixer\Config;
+use PhpCsFixer\Config as PhpCsFixerConfig;
 
-class Amp extends Config
+class Config extends PhpCsFixerConfig
 {
     public function __construct()
     {

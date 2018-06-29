@@ -19,12 +19,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Amp\\CS\\Config\\": "src"
+      "Amp\\CodeStyle\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "AmpTest\\CS\\Config\\": "test"
+      "AmpTest\\CodeStyle\\": "test"
     }
   }
 }
