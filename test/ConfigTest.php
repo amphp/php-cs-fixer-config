@@ -1,6 +1,6 @@
 <?php
 
-namespace AmpTest\CodeStyle;
+namespace Amp\CodeStyle\Test;
 
 use PhpCsFixer\ConfigInterface;
 use PHPUnit\Framework\TestCase;
@@ -8,18 +8,14 @@ use Amp\CodeStyle\Config;
 
 class ConfigTest extends TestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function it_implements_interface()
     {
         $config = new Config();
         $this->assertInstanceOf(ConfigInterface::class, $config);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_returns_correct_values()
     {
         $config = new Config();
@@ -28,24 +24,18 @@ class ConfigTest extends TestCase
         $this->assertTrue($config->getRiskyAllowed());
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_has_rules()
     {
         $config = new Config();
         $this->assertNotEmpty($config->getRules());
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_does_not_have_header_comment_fixer_by_default()
     {
         $config = new Config();
         $rules = $config->getRules();
-        $this->assertArrayHasKey('header_comment', $rules);
-        $this->assertFalse($rules['header_comment']);
+        $this->assertFalse($rules['header_comment'] ?? false);
     }
 }
-
