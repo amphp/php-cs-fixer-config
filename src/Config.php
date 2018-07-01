@@ -47,4 +47,3 @@ class Config extends PhpCsFixerConfig
         ];
     }
 }
-

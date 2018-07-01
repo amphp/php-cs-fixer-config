@@ -2,9 +2,9 @@
 
 namespace Amp\CodeStyle\Test;
 
+use Amp\CodeStyle\Config;
 use PhpCsFixer\ConfigInterface;
 use PHPUnit\Framework\TestCase;
-use Amp\CodeStyle\Config;
 
 class ConfigTest extends TestCase
 {
