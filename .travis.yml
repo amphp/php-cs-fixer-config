@@ -6,6 +6,11 @@ php:
   - 7.2
   - nightly
 
+matrix:
+  allow_failures:
+    - php: nightly
+  fast_finish: true
+
 cache:
   directories:
     - $HOME/.composer/cache
@@ -18,7 +23,7 @@ before_script:
 
 script:
   - php ./vendor/bin/phpunit --coverage-text --coverage-clover ./build/logs/clover.xml
-  - ./vendor/bin/php-cs-fixer fix -v --diff --dry-run
+  - PHP_CS_FIXER_IGNORE_ENV=1 ./vendor/bin/php-cs-fixer fix -v --diff --dry-run
 
 after_success:
   - php vendor/bin/coveralls -v

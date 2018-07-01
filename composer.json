@@ -26,6 +26,11 @@
     "psr-4": {
       "AmpTest\\CodeStyle\\": "test"
     }
+  },
+  "config": {
+    "platform": {
+      "php": "7.0.0"
+    }
   }
 }
 
