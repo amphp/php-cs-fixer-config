@@ -1,28 +1,10 @@
 language: php
 
-matrix:
-  fast_finish: true
-  include:
-    - php: 7.0
-      env:
-        - DEPENDENCIES=""
-    - php: 7.0
-    - env:
-        - DEPENDENCIES="--prefer-lowest --prefer-stable"
-    - php: 7.1
-      env:
-        - DEPENDENCIES=""
-        - TEST_COVERAGE=true
-    - php: 7.1
-      env:
-        - DEPENDENCIES="--prefer-lowest --prefer-stable"
-    - php: 7.2
-      env:
-        - DEPENDENCIES=""
-        - TEST_COVERAGE=true
-    - php: 7.2
-      env:
-        - DEPENDENCIES="--prefer-lowest --prefer-stable"
+php:
+  - 7.0
+  - 7.1
+  - 7.2
+  - nightly
 
 cache:
   directories:
@@ -31,13 +13,12 @@ cache:
     - $HOME/.local
 
 before_script:
-  - phpenv config-rm xdebug.ini
   - composer self-update
   - composer update --prefer-dist $DEPENDENCIES
 
 script:
-  - if [[ $TEST_COVERAGE == 'true' ]]; then php -dzend_extension=xdebug.so ./vendor/bin/phpunit --coverage-text --coverage-clover ./build/logs/clover.xml; else ./vendor/bin/phpunit; fi
+  - php ./vendor/bin/phpunit --coverage-text --coverage-clover ./build/logs/clover.xml
   - ./vendor/bin/php-cs-fixer fix -v --diff --dry-run
 
 after_success:
-  - if [[ $TEST_COVERAGE == 'true' ]]; then php vendor/bin/coveralls -v; fi
+  - php vendor/bin/coveralls -v
