@@ -1,33 +1,32 @@
 # php-cs-fixer-config
-PHP CS Fixer config for AMP
+
+This repository contains the common code style configuration for all [**@amphp**](https://github.com/amphp) projects.
+It's based on the ideas of [`refinery29/php-cs-fixer-config`](https://github.com/refinery29/php-cs-fixer-config/).
 
 [![Build Status](https://travis-ci.org/amp/php-cs-fixer-config.svg?branch=master)](https://travis-ci.org/amp/php-cs-fixer-config)
-[![Coverage Status](https://coveralls.io/repos/amp/php-cs-fixer-config/badge.svg?branch=master&service=github)](https://coveralls.io/github/amp/php-cs-fixer-config?branch=master)
-
-It's based on the ideas of [`refinery29/php-cs-fixer-config`](https://github.com/refinery29/php-cs-fixer-config/).
 
 ## Installation
 
-Run
+```
+composer require --dev amphp/php-cs-fixer-config
+```
 
-```
-$ composer require --dev amphp/php-cs-fixer-config
-```
-  
 ## Usage
 
 ### Configuration
 
-Create a configuration file `.php_cs` in the root of your project:
+Create a configuration file `.php_cs.dist` in the root of the project:
 
 ```php
 <?php
 
-$config = new Amp\CodeStyle\Config();
-$config->getFinder()->in(__DIR__);
+$config = new Amp\CodeStyle\Config;
+$config->getFinder()
+    ->in(__DIR__ . "/examples")
+    ->in(__DIR__ . "/src")
+    ->in(__DIR__ . "/test");
 
 $cacheDir = getenv('TRAVIS') ? getenv('HOME') . '/.php-cs-fixer' : __DIR__;
-
 $config->setCacheFile($cacheDir . '/.php_cs.cache');
 
 return $config;
@@ -35,7 +34,7 @@ return $config;
 
 ### Git
 
-Add `.php_cs.cache` (this is the cache file created by `php-cs-fixer`) to `.gitignore`:
+Add `.php_cs.cache` (the cache file used by `php-cs-fixer`) to `.gitignore`:
 
 ```
 vendor/
@@ -56,33 +55,29 @@ Then run `php-cs-fixer` in the `script` section:
 
 ```yml
 script:
-  - vendor/bin/php-cs-fixer fix --config=.php_cs --verbose --diff --dry-run
+  - vendor/bin/php-cs-fixer fix --config=.php_cs.dist --verbose --diff --dry-run
 ```
 
 ## Fixing issues
 
 ### Manually
 
-If you need to fix issues locally, just run
+If you need to fix issues locally, run
 
 ```
-$ ./vendor/bin/php-cs-fixer fix -v
+./vendor/bin/php-cs-fixer fix -v
 ```
 
 ### Pre-commit hook
 
-You can add a `pre-commit` hook
+You can add a `pre-commit` hook to format the code automatically before each commit.
 
-```
-$ touch .git/pre-commit && chmod +x .git/pre-commit
-```
- 
-Paste this into `.git/pre-commit`:
+Run `touch .git/pre-commit` to create a new hook, make it executable with `chmod +x .git/pre-commit` and paste the following script into `.git/pre-commit`:
 
 ```bash
 #!/usr/bin/env bash
 
-echo "pre commit hook start"
+echo "Running php-cs-fixer to format the code..."
 
 CURRENT_DIRECTORY=`pwd`
 GIT_HOOKS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -112,10 +107,9 @@ else
 fi
 
 cd $CURRENT_DIRECTORY;
-echo "pre commit hook finish"
+echo "Done."
 ```
- 
+
 ## License
 
 This package is licensed using the MIT License.
-
