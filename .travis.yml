@@ -1,9 +1,7 @@
 language: php
 
 php:
-  - 7.0
-  - 7.1
-  - 7.2
+  - 7.3
   - nightly
 
 matrix:
@@ -19,7 +17,7 @@ cache:
 
 before_script:
   - composer self-update
-  - composer update --prefer-dist $DEPENDENCIES
+  - composer update --prefer-dist --ignore-platform-reqs $DEPENDENCIES
 
 script:
   - php ./vendor/bin/phpunit --coverage-text --coverage-clover ./build/logs/clover.xml

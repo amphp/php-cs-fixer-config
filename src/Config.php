@@ -8,7 +8,7 @@ class Config extends PhpCsFixerConfig
 {
     public function __construct()
     {
-        parent::__construct('amp');
+        parent::__construct('Amp');
 
         $this->setRiskyAllowed(true);
     }
