@@ -19,7 +19,7 @@ class ConfigTest extends TestCase
     public function it_returns_correct_values()
     {
         $config = new Config();
-        $this->assertSame('amp', $config->getName());
+        $this->assertSame('Amp', $config->getName());
         $this->assertTrue($config->getUsingCache());
         $this->assertTrue($config->getRiskyAllowed());
     }
