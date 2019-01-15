@@ -34,7 +34,7 @@ class Config extends PhpCsFixerConfig
             "no_whitespace_in_blank_line" => true,
             "non_printable_character" => true,
             "normalize_index_brace" => true,
-            "ordered_imports" => ['imports_order' => ['const', 'class', 'function']],
+            "ordered_imports" => ['imports_order' => ['class', 'const', 'function']],
             "php_unit_construct" => true,
             "php_unit_dedicate_assert" => true,
             "php_unit_fqcn_annotation" => true,
