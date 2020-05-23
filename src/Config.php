@@ -11,6 +11,7 @@ class Config extends PhpCsFixerConfig
         parent::__construct('Amp');
 
         $this->setRiskyAllowed(true);
+        $this->setLineEnding("\n");
     }
 
     public function getRules(): array
@@ -44,6 +45,7 @@ class Config extends PhpCsFixerConfig
             "return_type_declaration" => ["space_before" => "none"],
             "short_scalar_cast" => true,
             "single_blank_line_before_namespace" => true,
+            "line_ending" => true,
         ];
     }
 }
