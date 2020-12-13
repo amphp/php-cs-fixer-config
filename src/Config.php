@@ -6,12 +6,20 @@ use PhpCsFixer\Config as PhpCsFixerConfig;
 
 class Config extends PhpCsFixerConfig
 {
+    private $src;
+
     public function __construct()
     {
         parent::__construct('Amp');
 
         $this->setRiskyAllowed(true);
         $this->setLineEnding("\n");
+
+        if (\is_dir(dirname(__DIR__, 4) . '/src')) {
+            $this->src = dirname(__DIR__, 4) . '/src';
+        } elseif (\is_dir(dirname(__DIR__, 4) . '/lib')) {
+            $this->src = dirname(__DIR__, 4) . '/lib';
+        }
     }
 
     public function getRules(): array
@@ -41,7 +49,7 @@ class Config extends PhpCsFixerConfig
             "php_unit_fqcn_annotation" => true,
             "phpdoc_summary" => true,
             "phpdoc_types" => true,
-            "psr4" => true,
+            "psr_autoloading" => $this->src,
             "return_type_declaration" => ["space_before" => "none"],
             "short_scalar_cast" => true,
             "single_blank_line_before_namespace" => true,
