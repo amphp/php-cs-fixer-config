@@ -49,7 +49,8 @@ class Config extends PhpCsFixerConfig
             "php_unit_fqcn_annotation" => true,
             "phpdoc_summary" => true,
             "phpdoc_types" => true,
-            "psr_autoloading" => ['dir' => $this->src],
+            // Avoid until https://github.com/FriendsOfPHP/PHP-CS-Fixer/pull/5421 is fixed:
+            // "psr_autoloading" => ['dir' => $this->src],
             "return_type_declaration" => ["space_before" => "none"],
             "short_scalar_cast" => true,
             "single_blank_line_before_namespace" => true,
