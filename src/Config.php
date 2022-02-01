@@ -36,7 +36,7 @@ class Config extends PhpCsFixerConfig
             "cast_spaces" => true,
             "combine_consecutive_unsets" => true,
             "function_to_constant" => true,
-            "native_function_invocation" => true,
+            "native_function_invocation" => ['include' => '@internal', 'scope' => 'namespaced'],
             "multiline_whitespace_before_semicolons" => true,
             "no_unused_imports" => true,
             "no_useless_else" => true,
