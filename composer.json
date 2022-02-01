@@ -1,36 +1,34 @@
 {
-  "name": "amphp/php-cs-fixer-config",
-  "description": "PHP CS Fixer config for AMP",
-  "type": "library",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Sascha-Oliver Prolic",
-      "email": "saschaprolic@googlemail.com"
+    "name": "amphp/php-cs-fixer-config",
+    "description": "Code style config for AMPHP.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Niklas Keller",
+            "email": "me@kelunik.com"
+        },
+        {
+            "name": "Sascha-Oliver Prolic",
+            "email": "saschaprolic@googlemail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "friendsofphp/php-cs-fixer": "^3.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Amp\\CodeStyle\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Amp\\CodeStyle\\": "test"
+        }
     }
-  ],
-  "require": {
-    "php": ">=7.0",
-    "friendsofphp/php-cs-fixer": "^2.12"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^6.0",
-    "php-coveralls/php-coveralls": "^1.0.2"
-  },
-  "autoload": {
-    "psr-4": {
-      "Amp\\CodeStyle\\": "src"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "AmpTest\\CodeStyle\\": "test"
-    }
-  },
-  "config": {
-    "platform": {
-      "php": "7.0.0"
-    }
-  }
 }
 

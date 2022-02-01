@@ -1,38 +1,33 @@
 <?php
 
-namespace Amp\CodeStyle\Test;
+namespace Amp\CodeStyle;
 
-use Amp\CodeStyle\Config;
 use PhpCsFixer\ConfigInterface;
 use PHPUnit\Framework\TestCase;
 
 class ConfigTest extends TestCase
 {
-    /** @test */
-    public function it_implements_interface()
+    public function testImplementsInterface(): void
     {
         $config = new Config();
         $this->assertInstanceOf(ConfigInterface::class, $config);
     }
 
-    /** @test */
-    public function it_returns_correct_values()
+    public function testReturnsCorrectValues(): void
     {
         $config = new Config();
-        $this->assertSame('Amp', $config->getName());
+        $this->assertSame('AMPHP', $config->getName());
         $this->assertTrue($config->getUsingCache());
         $this->assertTrue($config->getRiskyAllowed());
     }
 
-    /** @test */
-    public function it_has_rules()
+    public function testHasRules(): void
     {
         $config = new Config();
         $this->assertNotEmpty($config->getRules());
     }
 
-    /** @test */
-    public function it_does_not_have_header_comment_fixer_by_default()
+    public function testDoesNotHaveHeaderCommentFixerByDefault(): void
     {
         $config = new Config();
         $rules = $config->getRules();
