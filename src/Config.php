@@ -15,9 +15,9 @@ class Config extends PhpCsFixerConfig
         $this->setRiskyAllowed(true);
         $this->setLineEnding("\n");
 
-        if (is_dir(\dirname(__DIR__, 4) . '/src')) {
+        if (\is_dir(\dirname(__DIR__, 4) . '/src')) {
             $this->src = \dirname(__DIR__, 4) . '/src';
-        } elseif (is_dir(\dirname(__DIR__, 4) . '/lib')) {
+        } elseif (\is_dir(\dirname(__DIR__, 4) . '/lib')) {
             $this->src = \dirname(__DIR__, 4) . '/lib';
         } else {
             $this->src = __DIR__;
@@ -56,6 +56,9 @@ class Config extends PhpCsFixerConfig
             "short_scalar_cast" => true,
             "single_blank_line_before_namespace" => true,
             "line_ending" => true,
+            "no_superfluous_phpdoc_tags" => true,
+            "no_empty_phpdoc" => true,
+            "no_extra_blank_lines" => true,
         ];
     }
 }
