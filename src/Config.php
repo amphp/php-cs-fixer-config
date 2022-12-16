@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Amp\CodeStyle;
 
 use PhpCsFixer\Config as PhpCsFixerConfig;
@@ -29,15 +31,18 @@ class Config extends PhpCsFixerConfig
         return [
             "@PSR1" => true,
             "@PSR2" => true,
-            "braces" => [
-                "allow_single_line_closure" => true,
-            ],
             "array_syntax" => ["syntax" => "short"],
+            "braces" => ["allow_single_line_closure" => true],
             "cast_spaces" => true,
             "combine_consecutive_unsets" => true,
+            "declare_strict_types" => true,
             "function_to_constant" => true,
-            "native_function_invocation" => ['include' => ['@internal'], 'scope' => 'namespaced'],
+            "line_ending" => true,
             "multiline_whitespace_before_semicolons" => true,
+            "native_function_invocation" => ['include' => ['@internal'], 'scope' => 'namespaced'],
+            "no_empty_phpdoc" => true,
+            "no_extra_blank_lines" => true,
+            "no_superfluous_phpdoc_tags" => true,
             "no_unused_imports" => true,
             "no_useless_else" => true,
             "no_useless_return" => true,
@@ -55,10 +60,6 @@ class Config extends PhpCsFixerConfig
             "return_type_declaration" => ["space_before" => "none"],
             "short_scalar_cast" => true,
             "single_blank_line_before_namespace" => true,
-            "line_ending" => true,
-            "no_superfluous_phpdoc_tags" => true,
-            "no_empty_phpdoc" => true,
-            "no_extra_blank_lines" => true,
         ];
     }
 }
