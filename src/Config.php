@@ -30,7 +30,7 @@ class Config extends PhpCsFixerConfig
             "@PSR1" => true,
             "@PSR2" => true,
             "array_syntax" => ["syntax" => "short"],
-            "braces" => ["allow_single_line_closure" => true],
+            "blank_lines_before_namespace" => true,
             "cast_spaces" => true,
             "combine_consecutive_unsets" => true,
             "declare_strict_types" => true,
@@ -57,7 +57,6 @@ class Config extends PhpCsFixerConfig
             "psr_autoloading" => ['dir' => $this->src],
             "return_type_declaration" => ["space_before" => "none"],
             "short_scalar_cast" => true,
-            "single_blank_line_before_namespace" => true,
         ];
     }
 }
